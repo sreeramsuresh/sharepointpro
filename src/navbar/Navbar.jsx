@@ -1,48 +1,63 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import "./Navbar.css";
 
-function Navbar() {
+function NavBar() {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">
-          Geeksforgeeks
-        </a>
-
-        <div className="collapse navbar-collapse">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Course
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Job Portal
-              </a>
-            </li>
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-light my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
-      </nav>
-    </div>
+    <>
+      <Navbar bg="dark" variant="dark" expand="sm" className="mb-3">
+        <Container fluid>
+          <Navbar.Brand href="#">Law Technology</Navbar.Brand>
+          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-sm" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar-expand-sm"
+            aria-labelledby="offcanvasNavbarLabel-expand-sm"
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id="offcanvasNavbarLabel-expand-sm">
+                Offcanvas
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="#action2">Link</Nav.Link>
+                <NavDropdown
+                  title="Dropdown"
+                  id="offcanvasNavbarDropdown-expand-sm"
+                >
+                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action4">
+                    Another action
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action5">
+                    Something else here
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              <Form className="d-flex">
+                <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button className="navSearch">Search</Button>
+              </Form>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+    </>
   );
 }
 
-export default Navbar;
+export default NavBar;
